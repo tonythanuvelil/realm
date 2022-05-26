@@ -2,12 +2,13 @@ package com.seven.realm.controllers;
 
 import com.seven.realm.entities.House;
 import com.seven.realm.services.HouseService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@Slf4j
 @RestController
 @RequestMapping(path = "house")
 public class HouseController {
@@ -19,7 +20,12 @@ public class HouseController {
         this.houseService = houseService;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @GetMapping
+    public List<House> getHouses() {
+        return houseService.getHouses();
+    }
+
+    @PostMapping
     public void createHouse(@RequestBody House house) {
         houseService.createHouse(house);
     }

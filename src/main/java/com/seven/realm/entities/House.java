@@ -12,18 +12,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "house")
+@Table(name = "houses")
 public class House extends BaseEntity {
     @Id
     @SequenceGenerator(
-            name = "house_sequence",
-            sequenceName = "house_sequence",
+            name = "house_id_sequence",
+            sequenceName = "house_id_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "house_sequence"
+            generator = "house_id_sequence"
     )
+    @Column(updatable = false)
     private Long id;
 
     @Column(unique = true)
@@ -35,6 +36,7 @@ public class House extends BaseEntity {
 
     @JsonIgnore
     @OneToOne(mappedBy = "house")
+    @JoinColumn(name = "person_id")
     private Person person;
 }
 

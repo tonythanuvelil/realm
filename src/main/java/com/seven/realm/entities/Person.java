@@ -13,18 +13,19 @@ import java.time.Period;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "person")
+@Table(name = "persons")
 public class Person extends BaseEntity {
     @Id
     @SequenceGenerator(
-            name = "person_sequence",
-            sequenceName = "person_sequence",
+            name = "person_id_sequence",
+            sequenceName = "person_id_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "person_sequence"
+            generator = "person_id_sequence"
     )
+    @Column(updatable = false)
     private Long id;
 
     @Column(nullable = false)

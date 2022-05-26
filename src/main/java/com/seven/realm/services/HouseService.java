@@ -5,6 +5,8 @@ import com.seven.realm.repositories.HouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class HouseService {
 
@@ -17,5 +19,9 @@ public class HouseService {
 
     public void createHouse(House house) {
         houseRepository.save(house);
+    }
+
+    public List<House> getHouses() {
+        return houseRepository.findAll();
     }
 }
