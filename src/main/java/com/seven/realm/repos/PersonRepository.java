@@ -1,4 +1,4 @@
-package com.seven.realm.repositories;
+package com.seven.realm.repos;
 
 import com.seven.realm.entities.Person;
 import org.springframework.data.jpa.repository.JpaRepository;

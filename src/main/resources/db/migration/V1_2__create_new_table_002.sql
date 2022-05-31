@@ -1,8 +1,0 @@
-CREATE TABLE users (
-   id BIGINT NOT NULL,
-   created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-   updated_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-   name VARCHAR(255),
-   email VARCHAR(255),
-   CONSTRAINT pk_users PRIMARY KEY (id)
-);
